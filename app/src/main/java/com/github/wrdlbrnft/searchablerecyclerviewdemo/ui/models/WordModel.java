@@ -1,8 +1,10 @@
 package com.github.wrdlbrnft.searchablerecyclerviewdemo.ui.models;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
+
+import java.util.Objects;
 
 /**
  * Created with Android Studio
@@ -49,7 +51,7 @@ public class WordModel implements SortedListAdapter.ViewModel {
             if (mRank != other.mRank) {
                 return false;
             }
-            return mWord != null ? mWord.equals(other.mWord) : other.mWord == null;
+            return Objects.equals(mWord, other.mWord);
         }
         return false;
     }

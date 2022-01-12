@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'maven'
+//apply plugin: 'maven-publish'
+//apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 31
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    compileOnly 'androidx.recyclerview:recyclerview:1.2.1'
+    api 'com.github.wrdlbrnft:modular-adapter:0.3.0.22'
+    api 'com.github.wrdlbrnft:sorted-list-item-manager:0.3.0.22'
+}
+
+//final bintrayUser = System.getenv('BINTRAY_USER') ?: ''
+//final bintrayApiKey = System.getenv('BINTRAY_API_KEY') ?: ''
+final versionName = "0.3.0.${System.getenv('TRAVIS_BUILD_NUMBER') ?: 0}"
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+
+
+

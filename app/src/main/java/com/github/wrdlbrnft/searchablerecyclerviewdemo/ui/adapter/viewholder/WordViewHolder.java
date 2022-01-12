@@ -1,6 +1,6 @@
 package com.github.wrdlbrnft.searchablerecyclerviewdemo.ui.adapter.viewholder;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.github.wrdlbrnft.searchablerecyclerviewdemo.databinding.ItemWordBinding;
 import com.github.wrdlbrnft.searchablerecyclerviewdemo.ui.adapter.ExampleAdapter;
